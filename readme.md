@@ -21,7 +21,7 @@ class SSHController extends Controller
         $users = User::all();
 
         // $this->handleResponse($data, $component)
-        // because there is only one array key it will return AnonymousResourceCollection for api calls
+        // because there is only one array key we will return AnonymousResourceCollection for api calls
         return $this->handleResponse(compact('users'), 'Users');
     }
 
@@ -31,7 +31,7 @@ class SSHController extends Controller
         
         // $this->handleRedirect($data)
         // will call back() for inertia
-        // because data is a resource isn't a collection or one key array we get JsonResource for api calls
+        // because data is a resource we get JsonResource for api calls, collections and arrays with one key return AnonymousResourceCollection
         return $this->handleRedirect($key);
     }
 
